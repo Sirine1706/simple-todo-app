@@ -1,47 +1,47 @@
 .login-form {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    form {
-        padding: 3rem 2rem;
-        box-shadow: rgb(139, 92, 246) 0px 5px 15px;
-        width: 25%;
-        height: 45vh;
-        label {
-            color: #5b21b6;
-            font-size: 14px;
-            font-weight: 600;
-        }
-        input {
-            border: 1px solid #c084fc;
-            margin: .5rem 0;
-            width: 100%;
-            padding: 8px;
-            font-size: 16px;
-            border-radius: 5px;
-        }
-        button {
-            background: none;
-            background-color: #c084fc;
-            color: white;
-            border-radius: 8px;
-            width: 100%;
-            padding: 1rem;
-            margin: 1rem 0;
-            font-size: 16px;
-        }
-        button:focus {
-            background-color: #9333ea;
-        }
-        p {
-            font-size: 16px;
-            font-weight: 600;
-            margin: 1rem;
-            a {
-                text-decoration: underline;
-                text-align: center;
-            }
-        }
-     }
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  form {
+    padding: 3rem 2rem;
+    box-shadow: rgb(139, 92, 246) 0px 5px 15px;
+    width: 25%;
+    height: 45vh;
+    label {
+      color: #5b21b6;
+      font-size: 16px;
+      font-weight: 600;
+    }
+    input {
+      border: 1px solid #c084fc;
+      margin: 0.5rem 0;
+      width: 100%;
+      padding: 8px;
+      font-size: 14px;
+      border-radius: 5px;
+    }
+    button {
+      background: none;
+      background-color: #c084fc;
+      color: white;
+      border-radius: 8px;
+      width: 100%;
+      padding: 1rem;
+      margin: 1rem 0;
+      font-size: 16px;
+    }
+    button:focus {
+      background-color: #9333ea;
+    }
+    p {
+      font-size: 16px;
+      font-weight: 600;
+      margin: .5rem ;
+      a {
+        text-decoration: underline;
+        text-align: center;
+      }
+    }
+  }
 }
