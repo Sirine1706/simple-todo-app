@@ -3,7 +3,7 @@ import React from 'react';
 export const Sign = () => {
   return (
     <div className="login-form">
-      <form style={{height: '50vh'}}>
+      <form style={{height: '45vh'}}>
         <label htmlFor="fullName">FullName: </label>
         <br />
         <input type="text" name="text" id="name" placeholder='your name' />
@@ -24,10 +24,7 @@ export const Sign = () => {
         <br />
         <input type="password" name="password" id="password" placeholder='confirm your password' />
         <br />
-        <button type="submit">Login</button>
-        <p>
-          If you have not an account? <a href="maka"> Sign in</a>
-        </p>
+        <button type="submit">Sign in</button>
       </form>
     </div>
   );

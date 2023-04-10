@@ -1,415 +1,489 @@
 /** @format */
+
 export {}
-// import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
+// import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 
-// import { showToast } from '../utils/toast';
+// import { showToast } from "../utils/toast";
 
-// import axios from '../utils/axios';
+// import axios from "../utils/axios";
 
-// import { IResult } from '../types/models';
+// import { IResult } from "../types/models";
 
-// import { SavingLoader } from '../utils/loaders';
+// import { SavingLoader } from "../utils/loaders";
 
 // const LOADER_TIMEOUT = 2000;
 
 // const initialState: {
-//   selectedResult: IResult | null;
 
-//   result: IResult | null;
+//   selectedResult: IResult | null;
 
-//   results: IResult[] | [];
+//   result: IResult | null;
 
-//   scoreStart: string | number;
+//   results: IResult[] | [];
 
-//   scoreEnd: string | number;
+//   scoreStart: string | number;
 
-//   Message: string;
+//   scoreEnd: string | number;
 
-//   status: 'idle' | 'loading' | 'succeeded' | 'failed';
+//   Message: string;
 
-//   error: string | null;
+//   status: "idle" | "loading" | "succeeded" | "failed";
 
-//   updatedNotSaved: boolean;
+//   error: string | null;
 
-//   mediaType: 'image' | 'audio' | 'video';
+//   updatedNotSaved: boolean;
+
+//   mediaType: "image" | "audio" | "video";
+
 // } = {
-//   selectedResult: null,
 
-//   result: null,
+//   selectedResult: null,
 
-//   results: [],
+//   result: null,
 
-//   scoreStart: '',
+//   results: [],
 
-//   scoreEnd: '',
+//   scoreStart: "",
 
-//   Message: '',
+//   scoreEnd: "",
 
-//   status: 'idle',
+//   Message: "",
 
-//   error: null,
+//   status: "idle",
 
-//   updatedNotSaved: false,
+//   error: null,
 
-//   mediaType: 'image',
+//   updatedNotSaved: false,
+
+//   mediaType: "image",
+
 // };
 
 // export const updateResultOrder = createAsyncThunk(
-//   'result/UpdateOrder',
 
-//   async (payload: { resultIds: string[]; quizId: string }) => {
-//     let data;
+//   "result/UpdateOrder",
 
-//     try {
-//       const response = await axios.put(
-//         `/quizzes/${payload.quizId}/results/order`,
+//   async (payload: { resultIds: string[]; quizId: string }) => {
 
-//         {
-//           resultIds: payload.resultIds,
-//         }
-//       );
+//     let data;
 
-//       data = await response.data.data;
+//     try {
 
-//       if (response.status === 200) {
-//         return data;
-//       }
+//       const response = await axios.put(
 
-//       throw new Error(response.statusText);
-//     } catch (error: any) {
-//       return Promise.reject(error.message ? error.message : data?.message);
-//     }
-//   }
+//         `/quizzes/${payload.quizId}/results/order`,
+
+//         {
+
+//           resultIds: payload.resultIds,
+
+//         }
+
+//       );
+
+//       data = await response.data.data;
+
+//       if (response.status === 200) {
+
+//         return data;
+
+//       }
+
+//       throw new Error(response.statusText);
+
+//     } catch (error: any) {
+
+//       return Promise.reject(error.message ? error.message : data?.message);
+
+//     }
+
+//   }
+
 // );
 
 // export const updateResult = createAsyncThunk(
-//   'result/Update',
 
-//   async (payload: { resultId: string; quizId: string; result: any }) => {
-//     let data;
+//   "result/Update",
 
-//     try {
-//       const response = await axios.put(
-//         `/quizzes/${payload.quizId}/results/${payload.resultId}`,
+//   async (payload: { resultId: string; quizId: string; result: any }) => {
 
-//         payload.result,
+//     let data;
 
-//         {
-//           headers: {
-//             'Content-Type': 'multipart/form-data',
-//           },
-//         }
-//       );
+//     try {
 
-//       data = await response.data.data;
+//       const response = await axios.put(
 
-//       if (response.status === 200) {
-//         return data;
-//       }
+//         `/quizzes/${payload.quizId}/results/${payload.resultId}`,
 
-//       throw new Error(response.statusText);
-//     } catch (error: any) {
-//       console.log(error);
+//         payload.result,
 
-//       return Promise.reject(error.message ? error.message : data?.message);
-//     }
-//   }
+//         {
+
+//           headers: {
+
+//             "Content-Type": "multipart/form-data",
+
+//           },
+
+//         }
+
+//       );
+
+//       data = await response.data.data;
+
+//       if (response.status === 200) {
+
+//         return data;
+
+//       }
+
+//       throw new Error(response.statusText);
+
+//     } catch (error: any) {
+
+//       console.log(error);
+
+//       return Promise.reject(error.message ? error.message : data?.message);
+
+//     }
+
+//   }
+
 // );
 
 // export const initiateResult = createAsyncThunk(
-//   'result/Initiate',
 
-//   async (payload: any) => {
-//     let data;
+//   "result/Initiate",
 
-//     const quizId: string = payload.quizId;
+//   async (payload: any) => {
 
-//     const result: any = payload.result;
+//     let data;
 
-//     try {
-//       const response = await axios.post(`/quizzes/${quizId}/results`, result);
+//     const quizId: string = payload.quizId;
 
-//       data = await response.data.data;
+//     const result: any = payload.result;
 
-//       if (response.status === 200) {
-//         return data;
-//       }
+//     try {
 
-//       throw new Error(response.statusText);
-//     } catch (error: any) {
-//       console.log(error);
+//       const response = await axios.post(`/quizzes/${quizId}/results`, result);
 
-//       return Promise.reject(error.message ? error.message : data?.message);
-//     }
-//   }
+//       data = await response.data.data;
+
+//       if (response.status === 200) {
+
+//         return data;
+
+//       }
+
+//       throw new Error(response.statusText);
+
+//     } catch (error: any) {
+
+//       console.log(error);
+
+//       return Promise.reject(error.message ? error.message : data?.message);
+
+//     }
+
+//   }
+
 // );
 
 // export const deleteResult = createAsyncThunk(
-//   'result/Delete',
 
-//   async (payload: { quizId: string; resultId: string }) => {
-//     try {
-//       const response = await axios.delete(
-//         `/quizzes/${payload.quizId}/results/${payload.resultId}`
-//       );
+//   "result/Delete",
 
-//       if (response.status === 200) {
-//         return;
-//       }
+//   async (payload: { quizId: string; resultId: string }) => {
 
-//       throw new Error(response.statusText);
-//     } catch (error: any) {
-//       console.log(error);
+//     try {
 
-//       return Promise.reject(
-//         error.message ? error.message : 'Something went wrong!'
-//       );
-//     }
-//   }
+//       const response = await axios.delete(
+
+//         `/quizzes/${payload.quizId}/results/${payload.resultId}`
+
+//       );
+
+//       if (response.status === 200) {
+
+//         return;
+
+//       }
+
+//       throw new Error(response.statusText);
+
+//     } catch (error: any) {
+
+//       console.log(error);
+
+//       return Promise.reject(
+
+//         error.message ? error.message : "Something went wrong!"
+
+//       );
+
+//     }
+
+//   }
+
 // );
-
 // export const fetchResult = createAsyncThunk(
-//   'result/Get',
 
-//   async (payload: { quizId: string; resultId: string }) => {
-//     let data;
+//   "result/Get",
 
-//     try {
-//       const response = await axios.get(
-//         `/quizzes/${payload.quizId}/results/${payload.resultId}`
-//       );
+//   async (payload: { quizId: string; resultId: string }) => {
 
-//       data = await response.data.data;
+//     let data;
 
-//       if (response.status === 200) {
-//         return data;
-//       }
+//     try {
 
-//       throw new Error(response.statusText);
-//     } catch (error: any) {
-//       return Promise.reject(error.message ? error.message : data?.message);
-//     }
-//   }
+//       const response = await axios.get(
+
+//         `/quizzes/${payload.quizId}/results/${payload.resultId}`
+
+//       );
+
+//       data = await response.data.data;
+
+//       if (response.status === 200) {
+
+//         return data;
+
+//       }
+
+//       throw new Error(response.statusText);
+
+//     } catch (error: any) {
+
+//       return Promise.reject(error.message ? error.message : data?.message);
+
+//     }
+
+//   }
+
 // );
 
 // export const fetchResults = createAsyncThunk(
-//   'results/Get',
 
-//   async (payload: { quizId: string }) => {
-//     let data;
+//   "results/Get",
 
-//     try {
-//       const response = await axios.get(
-//         `/quizzes/${payload.quizId}/results/all`
-//       );
+//   async (payload: { quizId: string }) => {
 
-//       data = await response.data.data;
+//     let data;
 
-//       if (response.status === 200) {
-//         return data;
-//       }
+//     try {
 
-//       throw new Error(response.statusText);
-//     } catch (error: any) {
-//       return Promise.reject(error.message ? error.message : data?.message);
-//     }
-//   }
+//       const response = await axios.get(
+
+//         `/quizzes/${payload.quizId}/results/all`
+
+//       );
+
+//       data = await response.data.data;
+
+//       if (response.status === 200) {
+
+//         return data;
+
+//       }
+
+//       throw new Error(response.statusText);
+
+//     } catch (error: any) {
+
+//       return Promise.reject(error.message ? error.message : data?.message);
+
+//     }
+
+//   }
+
 // );
-
 // const slice = createSlice({
-//   name: 'result',
 
-//   initialState,
+//   name: "result",
 
-//   reducers: {
-//     setSelectedResult: (state, action: PayloadAction<IResult>) => {
-//       state.selectedResult = action.payload;
+//   initialState,
 
-//       state.scoreStart = action.payload?.scoreStart;
+//   reducers: {
 
-//       state.scoreEnd = action.payload?.scoreEnd;
+//     setSelectedResult: (state, action: PayloadAction<IResult>) => {
 
-//       state.Message = action.payload?.description;
-//     },
+//       state.selectedResult = action.payload;
 
-//     updateScoreStart(state, action: PayloadAction<any>) {
-//       state.scoreStart = action.payload;
-//     },
+//       state.scoreStart = action.payload?.scoreStart;
 
-//     updateScoreEnd(state, action: PayloadAction<any>) {
-//       state.scoreEnd = action.payload;
-//     },
+//       state.scoreEnd = action.payload?.scoreEnd;
 
-//     updateMessage(state, action: PayloadAction<any>) {
-//       state.Message = action.payload;
-//     },
+//       state.Message = action.payload?.description;
 
-//     setUpdatedNotSaved: (state, action: PayloadAction<boolean>) => {
-//       state.updatedNotSaved = action.payload;
-//     },
+//     },
 
-//     setMediaType: (
-//       state: any,
+//     updateScoreStart(state, action: PayloadAction<any>) {
 
-//       action: PayloadAction<'image' | 'audio' | 'video'>
-//     ) => {
-//       state.mediaType = action.payload;
-//     },
-//   },
+//       state.scoreStart = action.payload;
 
-//   extraReducers: (builder) => {
-//     // Get
+//     },
 
-//     builder.addCase(fetchResult.pending, (state) => {
-//       state.status = 'loading';
-//     });
+//     updateScoreEnd(state, action: PayloadAction<any>) {
 
-//     builder.addCase(
-//       fetchResult.fulfilled,
+//       state.scoreEnd = action.payload;
 
-//       (state, action: PayloadAction<any>) => {
-//         state.status = 'succeeded';
+//     },
 
-//         state.selectedResult = action.payload;
+//     updateMessage(state, action: PayloadAction<any>) {
 
-//         state.result = action.payload;
-//       }
-//     );
+//       state.Message = action.payload;
 
-//     builder.addCase(
-//       fetchResult.rejected,
+//     },
 
-//       (state, action: PayloadAction<any>) => {
-//         state.status = 'failed';
+//     setUpdatedNotSaved: (state, action: PayloadAction<boolean>) => {
 
-//         state.error = action.payload;
-//       }
-//     ); // Get All
+//       state.updatedNotSaved = action.payload;
 
-//     builder.addCase(fetchResults.pending, (state) => {
-//       state.status = 'loading';
-//     });
+//     },
 
-//     builder.addCase(
-//       fetchResults.fulfilled,
+//     setMediaType: (
 
-//       (state, action: PayloadAction<any>) => {
-//         state.status = 'succeeded';
+//       state: any,
 
-//         state.results = action.payload;
-//       }
-//     );
+//       action: PayloadAction<"image" | "audio" | "video">
 
-//     builder.addCase(
-//       fetchResults.rejected,
+//     ) => {
 
-//       (state, action: PayloadAction<any>) => {
-//         state.status = 'failed';
+//       state.mediaType = action.payload;
 
-//         state.error = action.payload;
-//       }
-//     ); // Create
+//     },
 
-//     builder.addCase(initiateResult.pending, (state) => {
-//       state.status = 'loading';
-//     });
+//   },
 
-//     builder.addCase(
-//       initiateResult.fulfilled,
+//   extraReducers: (builder) => {
 
-//       (state, action: PayloadAction<any>) => {
-//         state.status = 'succeeded';
+//     // Get
 
-//         state.result = action.payload;
-//       }
-//     );
+//     builder.addCase(fetchResult.pending, (state) => {
 
-//     builder.addCase(
-//       initiateResult.rejected,
+//       state.status = "loading";
 
-//       (state, action: PayloadAction<any>) => {
-//         state.status = 'failed';
+//     });
 
-//         state.error = action.payload;
-//       }
-//     ); // Delete
+//     builder.addCase(
 
-//     builder.addCase(deleteResult.pending, (state) => {
-//       state.status = 'loading';
-//     });
+//       fetchResult.fulfilled,
 
-//     builder.addCase(
-//       deleteResult.fulfilled,
+//       (state, action: PayloadAction<any>) => {
 
-//       (state, action: PayloadAction<any>) => {
-//         state.status = 'succeeded';
+//         state.status = "succeeded";
 
-//         SavingLoader(LOADER_TIMEOUT);
-//       }
-//     );
+//         state.selectedResult = action.payload;
 
-//     builder.addCase(
-//       deleteResult.rejected,
+//         state.result = action.payload;
+//       }
+//     );
+//     builder.addCase(
+//       fetchResult.rejected,
+//       (state, action: PayloadAction<any>) => {
+//         state.status = "failed";
+//         state.error = action.payload;
+//       }
+//     );
+//     // Get All
+//     builder.addCase(fetchResults.pending, (state) => {
+//       state.status = "loading";
+//     });
+//     builder.addCase(
+//       fetchResults.fulfilled,
+//       (state, action: PayloadAction<any>) => {
+//         state.status = "succeeded";
+//         state.results = action.payload;
+//       }
+//     );
+//     builder.addCase(
+//       fetchResults.rejected,
+//       (state, action: PayloadAction<any>) => {
+//         state.status = "failed";
+//         state.error = action.payload;
+//       }
+//     );
+//     // Create
+//     builder.addCase(initiateResult.pending, (state) => {
+//       state.status = "loading";
+//     });
+//     builder.addCase(
+//       initiateResult.fulfilled,
+//       (state, action: PayloadAction<any>) => {
+//         state.status = "succeeded";
+//         state.result = action.payload;
+//       }
+//     );
+//     builder.addCase(
+//       initiateResult.rejected,
+//       (state, action: PayloadAction<any>) => {
+//         state.status = "failed";
+//        state.error = action.payload;
+//       }
+//     );
+//     // Delete
+//     builder.addCase(deleteResult.pending, (state) => {
+//       state.status = "loading";
+//     });
+//     builder.addCase(
+//       deleteResult.fulfilled,
+//       (state, action: PayloadAction<any>) => {
+//         state.status = "succeeded";
+//         SavingLoader(LOADER_TIMEOUT);
+//       }
+//     );
+//     builder.addCase(
+//       deleteResult.rejected,
+//       (state, action: PayloadAction<any>) => {
+//        state.status = "failed";
+//      state.error = action.payload;
+//       }
+//     );
+//     // Update
+//     builder.addCase(updateResult.pending, (state) => {
+//      state.status = "loading";
+//     });
+//     builder.addCase(
+//       updateResult.fulfilled,
+//       (state, action: PayloadAction<any>) => {
+//         state.status = "succeeded";
+//         const newResult = action.payload;
+//         state.selectedResult = newResult;
+//         SavingLoader(LOADER_TIMEOUT);
+//       }
+//     );
+//     builder.addCase(
+//       updateResult.rejected,
+//       (state, action: PayloadAction<any>) => {
+//         state.status = "failed"
+//         state.error = action.payload;
+//       }
+//     );
+//     // UPDATE ORDER
+//     builder.addCase(
+//       updateResultOrder.fulfilled,
+//       (state, action: PayloadAction<any>) => {
+//         state.status = "succeeded";
+//    SavingLoader(LOADER_TIMEOUT);
+//       }
+//     );
+//   },
 
-//       (state, action: PayloadAction<any>) => {
-//         state.status = 'failed';
-
-//         state.error = action.payload;
-//       }
-//     ); // Update
-
-//     builder.addCase(updateResult.pending, (state) => {
-//       state.status = 'loading';
-//     });
-
-//     builder.addCase(
-//       updateResult.fulfilled,
-
-//       (state, action: PayloadAction<any>) => {
-//         state.status = 'succeeded';
-
-//         const newResult = action.payload;
-
-//         state.selectedResult = newResult;
-
-//         SavingLoader(LOADER_TIMEOUT);
-//       }
-//     );
-
-//     builder.addCase(
-//       updateResult.rejected,
-
-//       (state, action: PayloadAction<any>) => {
-//         state.status = 'failed';
-
-//         state.error = action.payload;
-//       }
-//     ); // UPDATE ORDER
-
-//     builder.addCase(
-//       updateResultOrder.fulfilled,
-
-//       (state, action: PayloadAction<any>) => {
-//         state.status = 'succeeded';
-
-//         SavingLoader(LOADER_TIMEOUT);
-//       }
-//     );
-//   },
 // });
-
 // export const {
-//   updateMessage,
 
-//   updateScoreStart,
+//   updateMessage,
 
-//   updateScoreEnd,
+//   updateScoreStart,
 
-//   setSelectedResult,
+//   updateScoreEnd,
 
-//   setUpdatedNotSaved,
+//   setSelectedResult,
 
-//   setMediaType,
+//   setUpdatedNotSaved,
+
+//   setMediaType,
+
 // } = slice.actions;
 
 // export default slice.reducer;
