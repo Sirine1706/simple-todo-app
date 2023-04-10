@@ -3,7 +3,7 @@ import React from 'react';
 export const Sign = () => {
   return (
     <div className="login-form">
-      <form style={{height: '62vh'}}>
+      <form style={{height: '50vh'}}>
         <label htmlFor="fullName">FullName: </label>
         <br />
         <input type="text" name="text" id="name" placeholder='your name' />

@@ -1,10 +1,90 @@
-.list-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+/** @format */
+
+.todo_container {
+  button {
+    background: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    color: white;
+    background-color: #c084fc;
+  }
+  button:hover {
+    background-color: #7e22ce;
+  }
   width: 50%;
-  background-color: red;
-  p {
-    color: red;
+  margin: 4rem auto;
+  padding: 1rem;
+  h1 {
+    color: #7e22ce;
+    font-family: "Rubik Pixels", cursive;
+    font-size: 32px;
+    margin: 1rem 0;
+  }
+  .add-task {
+    margin: 2rem 0;
+    box-shadow: $violet-200 0px 3px 8px;
+    padding: 2rem 1rem;
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 5px;
+    input,
+    button {
+      font-size: 16px;
+    }
+    input {
+      flex-grow: 1;
+    }
+    button {
+      background-color: #c084fc;
+    }
+  }
+  .tasks {
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    padding: 2rem .5rem;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+    .task {
+      
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      input{
+        flex-grow: 1;
+        background: none;
+        font-size: 16px;
+        padding: 5px 10px;
+      }
+      .buttons {
+        .done{
+          margin-right: 5px;
+          padding: 10px;
+        }
+        .edit {
+          background-color: #22c55e;
+          margin-right: 5px;
+        }
+        .edit:hover{
+          background-color: #16a34a;
+        }
+        .trash{
+          background-color: #ef4444;
+          padding: 10px;
+        }
+        .trash:hover{
+          background-color: #dc2626;
+        }
+      }
+    }
+    .clear {
+      background-color: #ef4444;
+      width: 12%;
+      align-self: center;
+      margin-top: 2rem;
+    }
   }
 }

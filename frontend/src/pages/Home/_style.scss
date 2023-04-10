@@ -27,21 +27,21 @@
     p{
       font-size: 20px;
     }
-    .buttons{
+    .links{
       display: flex;
       justify-content: center;
       align-items: center;
       gap: .5rem;
-      button {
+      a {
         padding: .8rem 4rem;
         background-color: #fecdd3;
         color: #fff1f2;
-        border-radius: 3px;
+        border-radius: 5px;
         font-size: 16px;
       }
-      button:hover{
+      a:focus{
         background-color: #fda4af;
-        font-size: 17px;
+        font-size: 16px;
         box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
       }
     }
