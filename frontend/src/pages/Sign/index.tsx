@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const Sign = () => {
+ const Sign = () => {
   return (
     <div className="login-form">
       <form style={{height: '45vh'}}>
@@ -29,3 +29,4 @@ export const Sign = () => {
     </div>
   );
 };
+export default Sign

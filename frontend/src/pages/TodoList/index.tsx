@@ -1,4 +1,4 @@
-export const TodoList = () => {
+const TodoList = () => {
   return (
     <div className='todo_container'>
       <h1>My todo list</h1>
@@ -31,3 +31,4 @@ export const TodoList = () => {
     </div>
   );
 };
+export default TodoList

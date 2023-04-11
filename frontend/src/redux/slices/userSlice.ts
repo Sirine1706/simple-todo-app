@@ -2,20 +2,16 @@
 
 import {createSlice, createAsyncThunk, PayloadAction} from "@reduxjs/toolkit";
 import axios from "../../utils/axios";
+import { AuthUserType } from "../../utils/types";
 
-type UserResult = {
-  name: string;
-  email: string;
-  password: string;
-  _id: string;
-};
+
 type UserState = {
-  user: UserResult;
+  user: AuthUserType;
   status: "idle" | "loading" | "succeeded" | "failed";
-  error: string | null;
+  error: any ;
 };
 const initialState: UserState = {
-  user: {} as UserResult,
+  user: null,
   status: "idle",
   error: null,
 };

@@ -1,6 +1,6 @@
 import React from "react";
 
-export const Login = () => {
+const Login = () => {
   return (
     <div className="login-form">
       <form>
@@ -20,3 +20,4 @@ export const Login = () => {
     </div>
   );
 };
+export default Login

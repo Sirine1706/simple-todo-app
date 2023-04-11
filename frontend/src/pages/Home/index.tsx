@@ -3,7 +3,7 @@
 import React from "react";
 import {NavLink} from "react-router-dom";
 
-export const Home = () => {
+const Home = () => {
   return (
     <div className='background'>
       <div className='container'>
@@ -19,3 +19,4 @@ export const Home = () => {
     </div>
   );
 };
+export default Home
