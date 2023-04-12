@@ -2,13 +2,12 @@
 
 import {createSlice, createAsyncThunk, PayloadAction} from "@reduxjs/toolkit";
 import axios from "../../utils/axios";
-import { AuthUserType } from "../../utils/types";
-
+import {AuthUserType} from "../../utils/types";
 
 type UserState = {
   user: AuthUserType;
   status: "idle" | "loading" | "succeeded" | "failed";
-  error: any ;
+  error: any;
 };
 const initialState: UserState = {
   user: null,
@@ -30,6 +29,20 @@ export const fetchUser = createAsyncThunk("user/fetchUser", async () => {
     return Promise.reject(err.message ? err.message : data?.message);
   }
 });
+export const Login = createAsyncThunk("user/login", async () => {
+  let data;
+  try {
+    const response = await axios.post("/api/v1/users/login");
+  data = await response.data;
+  if(response.status === 200){
+    return data;
+  }
+  
+  } catch (err: any) {                         
+    console.log(err);
+    return Promise.reject(err.message ? err.message : data?.message);
+  }
+});
 
 const userSlice = createSlice({
   name: "user",
@@ -44,6 +57,17 @@ const userSlice = createSlice({
       state.user = action.payload.data.user;
     });
     builder.addCase(fetchUser.rejected, (state, action: PayloadAction<any>) => {
+      state.status = "failed";
+      state.error = action.payload;
+    });
+    builder.addCase(Login.pending, (state) => {
+      state.status = "loading";
+    });
+    builder.addCase(Login.fulfilled, (state, action: PayloadAction<any>) => {
+      state.status = "succeeded";
+      state.user = action.payload.data.user;
+    });
+    builder.addCase(Login.rejected, (state, action: PayloadAction<any>) => {
       state.status = "failed";
       state.error = action.payload;
     });

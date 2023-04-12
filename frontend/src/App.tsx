@@ -11,8 +11,8 @@ import NotFound from "./pages/NotFound";
 import Sign from "./pages/Sign";
 import TodoList from "./pages/TodoList";
 import {store} from "./redux/store";
-
 function App() {
+
   return (
     <Provider store={store}>
       <AuthProvider>

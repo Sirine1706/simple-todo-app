@@ -98,12 +98,12 @@ export function AuthProvider({ children }: AuthProviderProps) {
 
   const initialize = useCallback(async () => {
     try {
-      const accessToken = storageAvailable ? localStorage.getItem('accessToken') : '';
+      const token = storageAvailable ? localStorage.getItem('token') : '';
 
-      if (accessToken && isValidToken(accessToken)) {
-        setSession(accessToken);
+      if (token && isValidToken(token)) {
+        setSession(token);
 
-        const response = await axios.get('/api/account/my-account');
+        const response = await axios.get('/api/v1/users/me');
 
         const { user } = response.data;
 
@@ -141,13 +141,13 @@ export function AuthProvider({ children }: AuthProviderProps) {
 
   // LOGIN
   const login = useCallback(async (email: string, password: string) => {
-    const response = await axios.post('/api/account/login', {
+    const response = await axios.post('/api/v1/users/login', {
       email,
       password,
     });
-    const { accessToken, user } = response.data;
-
-    setSession(accessToken);
+    const { token, user } = response.data;
+ console.log(response)
+    setSession(token);
 
     dispatch({
       type: Types.LOGIN,
@@ -160,7 +160,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
   // REGISTER
   const register = useCallback(
     async (email: string, password: string, firstName: string, lastName: string) => {
-      const response = await axios.post('/api/account/register', {
+      const response = await axios.post('/api/v1/users/sign', {
         email,
         password,
         firstName,
