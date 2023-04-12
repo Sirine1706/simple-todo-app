@@ -145,7 +145,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
       email,
       password,
     });
-    const { token, user } = response.data;
+    const { token, user } = response.data.data;
  console.log(response)
     setSession(token);
 

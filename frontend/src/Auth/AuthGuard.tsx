@@ -7,7 +7,7 @@ import {AuthProviderProps} from "../utils/types";
 export const AuthGuard = ({children}: AuthProviderProps) => {
   const {isAuthenticated, isInitialized} = useAuthContext();
 
-  if (!isAuthenticated || !isInitialized) {
+  if (!isAuthenticated) {
     return <Navigate to='/login' />;
   }
   return <>{children}</>;

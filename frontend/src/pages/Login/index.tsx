@@ -2,6 +2,7 @@
 import * as Yup from "yup";
 import {Form, Field, Formik} from "formik";
 import {useAuthContext} from "../../context/useAuthContext";
+import { fetchMe, fetchUser } from "../../redux/slices/userSlice";
 
 const LoginSchema = Yup.object().shape({
   password: Yup.string().min(8, "Too Short!").max(20, "Too Long!").required("Required"),
@@ -20,6 +21,7 @@ const Login = () => {
         validationSchema={LoginSchema}
         onSubmit={(values) => {
           login(values.email, values.password);
+          fetchMe();
         }}>
         {({errors, touched}) => (
           <Form>

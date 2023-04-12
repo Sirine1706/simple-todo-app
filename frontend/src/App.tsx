@@ -21,7 +21,7 @@ function App() {
           <Route path='/' element={<GuestGuard><Home /></GuestGuard>} />
           <Route path='/login' element={<GuestGuard><Login /></GuestGuard>} />
           <Route path='/sign-in' element={<GuestGuard><Sign /></GuestGuard>} />
-          <Route path='/my_todo' element={<AuthGuard><TodoList /></AuthGuard>} />
+          <Route path='/my-todo' element={<AuthGuard><TodoList /></AuthGuard>} />
           <Route path='/*' element={<AuthGuard><NotFound/></AuthGuard>} />
         </Routes>
         </BrowserRouter>

@@ -29,15 +29,15 @@ export const fetchUser = createAsyncThunk("user/fetchUser", async () => {
     return Promise.reject(err.message ? err.message : data?.message);
   }
 });
-export const Login = createAsyncThunk("user/login", async () => {
+export const fetchMe = createAsyncThunk("user/login", async () => {
   let data;
   try {
-    const response = await axios.post("/api/v1/users/login");
+    const response = await axios.get("/api/v1/users/me");
   data = await response.data;
   if(response.status === 200){
     return data;
   }
-  
+
   } catch (err: any) {                         
     console.log(err);
     return Promise.reject(err.message ? err.message : data?.message);
@@ -60,14 +60,14 @@ const userSlice = createSlice({
       state.status = "failed";
       state.error = action.payload;
     });
-    builder.addCase(Login.pending, (state) => {
+    builder.addCase(fetchMe.pending, (state) => {
       state.status = "loading";
     });
-    builder.addCase(Login.fulfilled, (state, action: PayloadAction<any>) => {
+    builder.addCase(fetchMe.fulfilled, (state, action: PayloadAction<any>) => {
       state.status = "succeeded";
       state.user = action.payload.data.user;
     });
-    builder.addCase(Login.rejected, (state, action: PayloadAction<any>) => {
+    builder.addCase(fetchMe.rejected, (state, action: PayloadAction<any>) => {
       state.status = "failed";
       state.error = action.payload;
     });
