@@ -11,13 +11,13 @@ export type AuthUserType = null | Record<string, any>;
 
 export type AuthStateType = {
   isAuthenticated: boolean;
-  isInitialized: boolean;
+  // isInitialized: boolean;
   user: AuthUserType;
 };
 export type JWTContextType = {
   method: string;
   isAuthenticated: boolean;
-  isInitialized: boolean;
+  // isInitialized: boolean;
   user: AuthUserType;
   login: (email: string, password: string) => Promise<void>;
   register: (email: string, password: string, firstName: string, lastName: string) => Promise<void>;
