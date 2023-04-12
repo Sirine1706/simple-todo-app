@@ -12,7 +12,7 @@ const Home = () => {
         </h1>
         <p>Keep everything in the same place—even if your team isn’t.</p>
         <div className='links'>
-          <NavLink to='/sign'>Sign in</NavLink>
+          <NavLink to='/sign-in'>Sign in</NavLink>
           <NavLink to='/login'>Login</NavLink>
         </div>
       </div>
