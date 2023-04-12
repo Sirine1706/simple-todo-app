@@ -29,11 +29,13 @@ export const fetchUser = createAsyncThunk("user/fetchUser", async () => {
     return Promise.reject(err.message ? err.message : data?.message);
   }
 });
-export const fetchMe = createAsyncThunk("user/login", async () => {
+export const fetchMe = createAsyncThunk("user/getMe", async () => {
   let data;
   try {
     const response = await axios.get("/api/v1/users/me");
-  data = await response.data;
+    console.log('hello from here')
+    data = await response.data;
+    console.log(response, 'fetch me')
   if(response.status === 200){
     return data;
   }
