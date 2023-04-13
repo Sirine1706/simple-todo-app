@@ -11,7 +11,7 @@
   button:hover {
     background-color: #7e22ce;
   }
-  width: 50%;
+  width: 70%;
   margin: 4rem auto;
   padding: 1rem;
   h1 {
@@ -29,38 +29,64 @@
     align-items: center;
     justify-content: space-between;
     gap: 5px;
+    .todo{
+      flex-grow: 1;
+      p{
+        font-size: 14px;
+        font-weight: 500;
+        padding: 5px 0;
+      }
+      input, textarea{
+        border: 1px solid #f3e8ff;
+        border-radius: .5rem;
+        padding: 1rem;
+        width: 80%;
+      }
+      textarea {
+        font-family: 'Schibsted Grotesk', sans-serif;
+        font-size: 16px;
+      }
+      textarea:focus{
+        outline: none;
+      }
+      #task-title{
+        margin-bottom: .5rem;
+      }
+    }
     input,
     button {
       font-size: 16px;
     }
-    input {
-      flex-grow: 1;
-    }
     button {
       background-color: #c084fc;
+      align-self: end;
     }
   }
   .tasks {
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-    padding: 2rem .5rem;
+    padding: 2rem 0.5rem;
     width: 80%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     gap: 1rem;
-    .task {
-      
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      input{
+    .task-container {
+      padding: 10px;
+      background-color: #f3e8ff;
+      border-radius: 10px;
+      .task {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      input {
         flex-grow: 1;
         background: none;
         font-size: 16px;
         padding: 5px 10px;
       }
       .buttons {
-        .done{
+        .done {
           margin-right: 5px;
           padding: 10px;
         }
@@ -68,14 +94,14 @@
           background-color: #22c55e;
           margin-right: 5px;
         }
-        .edit:hover{
+        .edit:hover {
           background-color: #16a34a;
         }
-        .trash{
+        .trash {
           background-color: #ef4444;
           padding: 10px;
         }
-        .trash:hover{
+        .trash:hover {
           background-color: #dc2626;
         }
       }

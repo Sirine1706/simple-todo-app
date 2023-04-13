@@ -2,7 +2,6 @@
 import * as Yup from "yup";
 import {Form, Field, Formik} from "formik";
 import {useAuthContext} from "../../context/useAuthContext";
-import {fetchMe} from "../../redux/slices/userSlice";
 
 const SignSchema = Yup.object().shape({
   name: Yup.string(),
@@ -35,7 +34,6 @@ const Sign = () => {
         onSubmit={(values) => {
           console.log(values);
           register(values.name, values.email,values.password, values.passwordConfirm)
-          fetchMe()
         }}>
         {({errors, touched}) => (
           <Form style={{height: "45vh"}}>
