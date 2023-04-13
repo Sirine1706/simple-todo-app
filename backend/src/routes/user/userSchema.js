@@ -8,7 +8,7 @@ exports.CreateUserSchema = Joi.object({
       tlds: { allow: ['com', 'net', 'tn'] },
     })
     .required(),
-  password: Joi.string().pattern(new RegExp('^[a-zA-Z0-9]{3,30}$')).required(),
+  password: Joi.string().pattern(new RegExp('^[a-zA-Z0-9]{8,20}$')).required(),
   passwordConfirm: Joi.ref('password'),
 });
 exports.UpdateUserSchema = Joi.object({

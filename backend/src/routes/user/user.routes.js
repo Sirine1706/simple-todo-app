@@ -23,7 +23,7 @@ const router = express.Router();
 router.post('/', protect, createUser);
 router.get('/:id', protect, getUser);
 router.get('/', protect, getUsers);
-router.get('/me', protect, getMe, getUser);
+router.get('/me', protect, getUser);
 router.put('/me', protect, validator(UpdateUserSchema), updateMe);
 router.delete('/me', protect, deleteMe);
 router.patch('/update-password', protect, updatePassword);

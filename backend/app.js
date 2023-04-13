@@ -3,6 +3,7 @@
 const express = require('express');
 const helmet = require('helmet');
 const morgan = require('morgan');
+const cors = require('cors');
 const rateLimiter = require('express-rate-limit');
 const mongoSanitize = require('express-mongo-sanitize');
 const AppError = require('./src/utils/AppError');
@@ -12,10 +13,11 @@ const app = express();
 const taskRouter = require('./src/routes/task/task.routes');
 const userRouter = require('./src/routes/user/user.routes');
 
+app.use(cors());
 app.use(helmet());
 app.use(morgan('dev'));
 const limiter = rateLimiter({
-  max: 10,
+  max: 1000,
   windowMs: 60 * 60 * 1000,
   message: 'Too many requests from this API, please try again in an hour!',
 });

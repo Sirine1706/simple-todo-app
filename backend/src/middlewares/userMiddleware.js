@@ -5,7 +5,7 @@ const AppError = require('../utils/AppError');
 const catchAsync = require('../utils/catchAsync');
 
 exports.getMe = (req, res, next) => {
-  req.params.id = req.user.id;
+  req.params.id = req.user._id;
   next();
 };
 exports.protect = catchAsync(async (req, res, next) => {
