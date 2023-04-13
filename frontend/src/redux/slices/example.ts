@@ -102,53 +102,29 @@ export {}
 // );
 
 // export const updateResult = createAsyncThunk(
-
 //   "result/Update",
-
 //   async (payload: { resultId: string; quizId: string; result: any }) => {
-
 //     let data;
-
 //     try {
-
 //       const response = await axios.put(
-
 //         `/quizzes/${payload.quizId}/results/${payload.resultId}`,
-
 //         payload.result,
-
 //         {
-
 //           headers: {
-
 //             "Content-Type": "multipart/form-data",
-
 //           },
-
 //         }
-
 //       );
-
 //       data = await response.data.data;
-
 //       if (response.status === 200) {
-
 //         return data;
-
 //       }
-
 //       throw new Error(response.statusText);
-
-//     } catch (error: any) {
-
+//     } catch (error: any) 
 //       console.log(error);
-
 //       return Promise.reject(error.message ? error.message : data?.message);
-
 //     }
-
 //   }
-
 // );
 
 // export const initiateResult = createAsyncThunk(

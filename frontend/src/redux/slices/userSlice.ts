@@ -15,53 +15,44 @@ const initialState: UserState = {
   error: null,
 };
 
-export const fetchUser = createAsyncThunk("user/fetchUser", async () => {
-  let data;
-  try {
-    const response = await axios.get(`/api/v1/users/me`);
-    data = await response.data;
-    if ((response.status = 200)) {
-      return data;
-    }
-    throw new Error(response.statusText);
-  } catch (err: any) {
-    console.log(err);
-    return Promise.reject(err.message ? err.message : data?.message);
-  }
-});
-export const fetchMe = createAsyncThunk("user/getMe", async () => {
-  let data;
-  try {
-    const response = await axios.get("/api/v1/users/me");
-    console.log('hello from here')
-    data = await response.data;
-    console.log(response, 'fetch me')
-  if(response.status === 200){
-    return data;
-  }
+// export const fetchMe = createAsyncThunk("user/fetchUser", async () => {
+//   console.log("jdfsh");
+//   let data;
+//   try {
+//     const response = await axios.get(`/api/v1/users/me`);
+//     data = await response.data;
+//     if ((response.status = 200)) {
+//       return data;
+//     }
+//     throw new Error(response.statusText);
+//   } catch (err: any) {
+//     console.log(err);
+//     return Promise.reject(err.message ? err.message : data?.message);
+//   }
+// });
+export const fetchMe = createAsyncThunk(
+  "user/Get",
+  async () => {
+    let data;
+    try {
+      const response = await axios.get("/api/v1/users/me");
 
-  } catch (err: any) {                         
-    console.log(err);
-    return Promise.reject(err.message ? err.message : data?.message);
+      data = await response.data.data;
+      if (response.status === 200) {
+        return data;
+      }
+      throw new Error(response.statusText);
+    } catch (error: any) {
+      return Promise.reject(error.message ? error.message : data?.message);
+    }
   }
-});
+);
 
 const userSlice = createSlice({
   name: "user",
   initialState,
   reducers: {},
   extraReducers: (builder) => {
-    builder.addCase(fetchUser.pending, (state) => {
-      state.status = "loading";
-    });
-    builder.addCase(fetchUser.fulfilled, (state, action: PayloadAction<any>) => {
-      state.status = "succeeded";
-      state.user = action.payload.data.user;
-    });
-    builder.addCase(fetchUser.rejected, (state, action: PayloadAction<any>) => {
-      state.status = "failed";
-      state.error = action.payload;
-    });
     builder.addCase(fetchMe.pending, (state) => {
       state.status = "loading";
     });

@@ -2,20 +2,21 @@
 import * as Yup from "yup";
 import {Form, Field, Formik} from "formik";
 import {useAuthContext} from "../../context/useAuthContext";
-import { fetchMe } from "../../redux/slices/userSlice";
+
 
 const LoginSchema = Yup.object().shape({
   password: Yup.string()
-  .min(8, 'Password must be 8 characters long')
-  .matches(/[0-9]/, 'Password requires a number')
-  .matches(/[a-z]/, 'Password requires a lowercase letter')
-  .matches(/[A-Z]/, 'Password requires an uppercase letter')
-  .required(),
+    .min(8, "Password must be 8 characters long")
+    .matches(/[0-9]/, "Password requires a number")
+    .matches(/[a-z]/, "Password requires a lowercase letter")
+    .matches(/[A-Z]/, "Password requires an uppercase letter")
+    .required(),
   email: Yup.string().email("Invalid email").required("Required"),
 });
 
 const Login = () => {
   const {login} = useAuthContext();
+
   return (
     <div className='login-form'>
       <Formik
@@ -26,7 +27,7 @@ const Login = () => {
         validationSchema={LoginSchema}
         onSubmit={(values) => {
           login(values.email, values.password);
-          fetchMe();
+          
         }}>
         {({errors, touched}) => (
           <Form>

@@ -6,7 +6,6 @@ import {AuthProviderProps} from "../utils/types";
 
 export const AuthGuard = ({children}: AuthProviderProps) => {
   const {isAuthenticated} = useAuthContext();
-  console.log('isAuthenticated AuthGuard', isAuthenticated);
   if (!isAuthenticated) {
     return <Navigate to='/login' />;
   }
